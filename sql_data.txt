@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS assessment_victor_db;
+
+CREATE DATABASE assessment_victor_db;
+
+USE assessment_victor_db;
+
+CREATE TABLE notes (id BIGINT AUTO_INCREMENT PRIMARY KEY, body VARCHAR(255));
+
+INSERT INTO notes(body) VALUES( 'Pick up milk!');
+INSERT INTO notes(body) VALUES( 'Ask Larry about TPS reports.');
+INSERT INTO notes(body) VALUES( 'Another note with milk word.');
+INSERT INTO notes(body) VALUES( 'Review notes from previous class.');
+INSERT INTO notes(body) VALUES( 'Meeting at 2:15.');
