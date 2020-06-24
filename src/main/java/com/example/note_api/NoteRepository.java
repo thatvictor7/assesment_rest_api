@@ -16,6 +16,7 @@ public interface NoteRepository extends CrudRepository<Note, Long> {
     @Query(value = "SELECT * FROM  notes WHERE body like %?1", nativeQuery = true)
     List<Note> findAllByBody(@Param("word") String word);
 
-
+    @Query(value = "SELECT * FROM notes", nativeQuery = true)
+    List<Note> getAll();
 
 }

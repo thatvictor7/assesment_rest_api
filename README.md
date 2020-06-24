@@ -1,4 +1,4 @@
-#Assessment API
+# Assessment API
 
 This is a note-taking REST API, created with Spring-Boot framework
 and MySQL as the DBMS.
@@ -24,3 +24,17 @@ $ `mysql -uroot -p`
  
 Add your MySQL password to line 3:
 > spring.datasource.password=[YOUR MYSQL PASSWORD]
+
+###### Routes
+1. GET /api/notes\
+$`curl -i -H "Content-Type: application/json" -X GET
+ http://localhost:8080/api/notes`
+2. GET /api/notes?query={}\
+$`curl -i -H "Content-Type: application/json" =X GET
+http://localhost:8080/api/notes?query=milk`
+3. GET /api/notes/:id\
+$`curl -i -H "Content-Type: application/json" -X GET
+http://localhost:8080/api/notes/3`
+4. POST /api/notes\
+$`curl -i -H "Content-Type: application/json" -X POST -d '{"body" : "POST note!"}'
+http://localhost:8080/api/notes`

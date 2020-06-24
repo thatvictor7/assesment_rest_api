@@ -25,39 +25,15 @@ public class NotesController {
 
     }
 
-//    @GetMapping("?query={word}")
-////    @RequestMapping(method = RequestMethod.GET, value = "?query={searchWord}")
-//    public Integer allBySearchQuery(@PathVariable String word) {
-//        System.out.println(word);
-//
-//        return 3;
-//    }
-//    @GetMapping("?query={id}")
-
-
-//    @GetMapping("")
-//    public Iterable<Note> all() {
-//
-//        System.out.println("get all");
-//
-//        return this.repository.findAll();
-//    }
-
-
-//    @RequestMapping("?query={word}")
-//    public List<Note> byWord(@PathVariable(value = "word") String word) {
-////    public List<Note> byWord(@Que(value = "word") String word) {
-//        System.out.println(word);
-////        return this.repository.findAllByBody("%" + word + "%");
-//        return this.repository.findAllByBody(word);
-//    }
-
     @GetMapping("")
-    public List<Note> getParam(@RequestParam String query) {
-        System.out.println("by query");
-//        return this.repository.findAllByBody(query);
-        return this.repository.findAllByBody("%" + query + "%");
+    public List<Note> all(@RequestParam(required = false) String query) {
+        System.out.println(query);
+        if (query == null) {
+            System.out.println("false");
+            return this.repository.getAll();
+        } else {
+            return this.repository.findAllByBody("%" + query + "%");
+        }
     }
-
 
 }
